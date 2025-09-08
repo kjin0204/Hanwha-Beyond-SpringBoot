@@ -1,0 +1,13 @@
+# yml, 또는 yaml이 좋은 이유
+# 1. 한글 작성이 용이하다(추가 인코딩 필요x)
+# 2. 들여쓰기 및 동일한 키 값이 중복되지 않아 가독성이 좋음
+# 3. 주석을 # 하나로 사용하기 그나마 용이
+test:
+  value: hello world
+  age: 8
+
+server:
+  port: 8080
+
+
+# application.properties와 동시 작성이 가능하지만 주로 yml만 사용
