@@ -2,14 +2,20 @@ package org.ohgiraffers.handlerrmethod;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.Map;
 
 @Controller
 @RequestMapping("/first")
+
+/* 설명. 이 Controller클래스의 핸들러 메소드에서 Model에 "id" 또는 "name"이 키 값으로 담기면 HttpSession에 추가하는 어노테이션 */
+/* 설명. HttpSession에서 제공하는 invalidate()가 아닌 SessionStatus에서 제공하는 setComplete()를 통해서만 완료할 수 있다. */
+@SessionAttributes(names={"id","name"})
 public class FirstController {
 
     //    @GetMapping("/regist")
@@ -119,6 +125,37 @@ public class FirstController {
         session.invalidate();
 
         return "/first/loginResult";
+    }
+
+
+    @PostMapping("login2")
+    public String sessionTest2(Model model,
+                             String id){
+        model.addAttribute("id",id);
+        model.addAttribute("name","홍길동");
+
+        return "first/loginResult";
+    }
+
+    @GetMapping("logout2")
+    public String logoutTest2(SessionStatus sessionStatus){
+        sessionStatus.setComplete();
+
+        return "/first/loginResult";
+    }
+
+    @GetMapping("body")
+    public void body(){}
+
+    @PostMapping("body")
+    public void bodyTest(@RequestBody String body,
+                           @RequestHeader("content-type") String contentType,
+                           @CookieValue(value="JSESSIONID") String sessionID){
+        System.out.println("body = " + body);
+        System.out.println("contentType = " + contentType);
+        System.out.println("sessionID = " + sessionID);
+
+
     }
 
 }
