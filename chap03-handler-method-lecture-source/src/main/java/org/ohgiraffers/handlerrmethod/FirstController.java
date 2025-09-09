@@ -1,6 +1,7 @@
 package org.ohgiraffers.handlerrmethod;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -92,6 +93,32 @@ public class FirstController {
 
         System.out.println("menu = " + menu);
         return "/first/searchResult";
+    }
+
+    @GetMapping("login")
+    public void login(){}
+
+    @PostMapping("login")
+    public String sessionTest1(String id,
+                               String pwd,
+                               HttpSession session){
+        System.out.println("id = " + id);
+        System.out.println("pwd = " + pwd);
+
+        /* 설명. 넘어온 id와 pwd를 활용해 실제 DB에서 회원 조회를 성공했다는 가정 */
+        session.setAttribute("id",id);
+        session.setAttribute("pwd",pwd);
+        session.setAttribute("name","홍길동");
+
+
+        return "/first/loginResult";
+    }
+
+    @GetMapping("logout1")
+    public String logoutTest1(HttpSession session){
+        session.invalidate();
+
+        return "/first/loginResult";
     }
 
 }
