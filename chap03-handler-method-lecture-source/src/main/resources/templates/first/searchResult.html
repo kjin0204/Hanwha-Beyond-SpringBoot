@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<!--<h1>Model에 담김 커맨드 객체의 정보 출력</h1>-->
+<!--&lt;!&ndash; 설명 1. @ModelAttribute 어노테이션만(name 속성 안 썻을때) 사용 시(feat. 커맨드 객체의 타입의 첫글자를 소문자로 한 키 값) &ndash;&gt;-->
+<!--<h3 th:text="|메뉴의 이름: ${menuDTO.name}|"></h3>       &lt;!&ndash; 각 필드에 접근할 시 getter를 호출 &ndash;&gt;-->
+<!--<h3 th:text="|메뉴의 가격: ${menuDTO.price}|"></h3>-->
+<!--<h3 th:text="|메뉴의 카테고리 ${menuDTO.categoryCode}|"></h3>-->
+<!--<h3 th:text="|메뉴의 판매상태: ${menuDTO.orderableStatus}|"></h3>-->
+
+<br>
+<!-- 설명 2. name 속성을 menu로 했을 시 -->
+<h3 th:text="|메뉴의 이름: ${menu.name}|"></h3>       <!-- 각 필드에 접근할 시 getter를 호출 -->
+<h3 th:text="|메뉴의 가격: ${menu.price}|"></h3>
+<h3 th:text="|메뉴의 카테고리 ${menu.categoryCode}|"></h3>
+<h3 th:text="|메뉴의 판매상태: ${menu.orderableStatus}|"></h3>
+</body>
+</html>
