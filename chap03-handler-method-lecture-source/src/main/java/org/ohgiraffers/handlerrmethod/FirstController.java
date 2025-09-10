@@ -127,7 +127,10 @@ public class FirstController {
         return "/first/loginResult";
     }
 
-
+    /* 클래스 시그니처에 @SessionAttributes(names={"id","name"}) 어노테이션을 설정해서 Attribute에 추가한
+        id 와 name 이 Session객체에 설정 하지 않았어도 session에 추가됨
+     */
+    // @SessionAttributes(names={"id","name"})
     @PostMapping("login2")
     public String sessionTest2(Model model,
                              String id){

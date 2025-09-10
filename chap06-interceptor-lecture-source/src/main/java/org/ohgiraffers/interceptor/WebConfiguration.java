@@ -17,12 +17,14 @@ public class WebConfiguration implements WebMvcConfigurer {
         this.stopwatchInterceptor = stopwatchInterceptor;
     }
 
+    /* 설명. 인터셉터 추가 및 동작 요청 패턴 설정 */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(stopwatchInterceptor)
                 .excludePathPatterns("/css/**"); // 이런 형식의 요청은 인터셉터가 동작하지 않도록 함
     }
 
+    /* 설명. 정적 리소스 호출을 위한 설정 */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
