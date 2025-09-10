@@ -9,8 +9,17 @@
 </head>
 <body>
     <h1 th:text="${message}"></h1>
-    <div th:if="${img != null}"></div>
-        <img th:src="${img}" width="900" height="900">
+    <div th:if="${img != null}">
+        <img th:src="${img}" width="350" height="350">
         <p th:text="${singleFileDescription}"></p>
+    </div>
+
+
+    <div th:if="${imgs != null}">
+        <th:block th:each="img: ${imgs}">
+            <img th:src="${img}" width="300" height="300">
+        </th:block>
+        <p th:text="${multiFileDescription}"></p>
+    </div>
 </body>
 </html>
