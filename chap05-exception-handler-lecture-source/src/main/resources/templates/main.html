@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Exception Handler 사용하기</h1>
+<h3>SimpleMappingExceptionResolver를 이용한 방식(전역,전통적)</h3>
+<button onclick="location.href='simple-null'">NullPointerException 테스트</button>
+<button onclick="location.href='simple-user'">사용자 정의 Exception 테스트</button>
+
+<h3>@ExceptionHandler 어노테이션을 이용한 방식(지역(해당 컨트롤러))</h3>
+<button onclick="location.href='annotation-null'">NullPointerException 테스트</button>
+<button onclick="location.href='annotation-user'">사용자 정의 Exception 테스트</button>
+
+<h3>@ControllerAdvice를 이용한 전역 예외 처리 방식(전역,현대적)</h3>
+<button onclick="location.href='global/global-exception'">사용자 정의 GlobalException 테스트</button>
+<button onclick="location.href='global/runtime-exception'">RunTimeException 테스트</button>
+<button onclick="location.href='global/illegal-exception'">IllegalArgumentException 테스트</button>
+<button onclick="location.href='global/arithmetic-exception'">ArithmeticException 테스트</button>
+
+</body>
+</html>
