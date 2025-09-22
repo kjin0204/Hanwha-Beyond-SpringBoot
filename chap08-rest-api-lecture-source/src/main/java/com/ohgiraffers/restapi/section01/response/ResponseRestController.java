@@ -63,7 +63,6 @@ public class ResponseRestController {
 
 //        return messageList.stream()
 //                .collect(Collectors.toMap(Message::getHttpStatusCode,Message::getMessage));
-
         return messageList.stream()
                 .collect(Collectors.toMap(m -> m.getHttpStatusCode(), m -> m.getMessage()));
     }
