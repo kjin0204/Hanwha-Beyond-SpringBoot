@@ -86,5 +86,32 @@ public class ResponseEntityTestController {
                 .created(URI.create("/entity/users/" + (lastUserNo + 1)))   // Response header 중 "Location"에 담겨 돌아옴
                 .build();
     }
+    
+    @PutMapping("/users/{userNo}")
+    public ResponseEntity<?> modifyUser(@PathVariable int userNo, @RequestBody UserDTO modifyMember){
+        UserDTO foundUser =
+                users.stream().filter(user -> user.getNo() == userNo)
+                        .collect(Collectors.toList()).get(0);
+        
+        foundUser.setId(modifyMember.getId());
+        foundUser.setName(modifyMember.getName());
+        foundUser.setPwd(modifyMember.getPwd());
+        
+        return ResponseEntity
+                .created(URI.create("/entity/user/" + userNo))
+                .build();
+    }
 
+    @DeleteMapping("/users/{userNo}")
+    public ResponseEntity<?> removeUser(@PathVariable int userNo){
+        UserDTO foundUser = users.stream()
+                .filter(user -> user.getNo()== userNo)
+                .collect(Collectors.toList()).get(0);
+
+        users.remove(foundUser);
+
+        return ResponseEntity
+                .noContent()
+                .build();
+    }
 }

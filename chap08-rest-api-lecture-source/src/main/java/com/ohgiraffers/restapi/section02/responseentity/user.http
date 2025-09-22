@@ -14,3 +14,16 @@ Content-type: application/json
   "name":"신사임당",
   "enrollAt": "2025-09-22T05:17:59.094+00:00"
 }
+
+### PUT modify user
+PUT localhost:8080/entity/users/1
+content-type: application/json
+
+{
+  "id": "user05",
+  "pwd": "pass05",
+  "name": "임꺽정"
+}
+
+### Delete user
+DELETE localhost:8080/entity/users/1

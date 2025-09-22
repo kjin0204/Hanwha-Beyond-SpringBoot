@@ -92,7 +92,7 @@ public class ResponseRestController {
     * */
 
     /* 설명. 3. Resource  */
-    @GetMapping(value="/image/resource/{filename}", produces= MediaType.IMAGE_PNG_VALUE)
+    @GetMapping(value="/image/resource/{filename}")
     public ResponseEntity<Resource> getImageWithResource(@PathVariable String filename) throws MalformedURLException {
 
         /* 설명. UrlResource: 파일 시스템 경로를 Resource 객체로 변환 */
@@ -103,7 +103,7 @@ public class ResponseRestController {
          *  1. CONTENT_DISPOSITION 헤더
          *  : 파일명 지정으로 사용자 경험 향상, 브라우저가응답 데이터를 어떻게 처리할 지 결정
          *  2. "inline" vs "attachment"
-         *   : inline은 브루아주에서 바로 열어서 표시, attachment는 무조건 다운로드 대화상자 표시
+         *   : inline은 브라우저에서 바로 열어서 표시, attachment는 무조건 다운로드 대화상자 표시
          *  3. filename 속성
          *  : 브라우저가 파일을 저장할 때 사용할 기본 파일명(서버 파일명과 다르게 할 수 있음)
         * */
